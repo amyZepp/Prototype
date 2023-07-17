@@ -55,13 +55,13 @@ fun SignUpWithPasswordScreen(
         ) {
             OutlinedTextField(
                 value = "",
-                label = { Text("Email") },
+                label = { Text(stringResource(R.string.email_label)) },
                 onValueChange = { },
                 shape = RoundedCornerShape(15.dp),
             )
             OutlinedTextField(
                 value = "",
-                label = { Text("Password") },
+                label = { Text(stringResource(R.string.password)) },
                 onValueChange = { },
                 shape = RoundedCornerShape(15.dp),
             )

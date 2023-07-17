@@ -32,7 +32,7 @@ private const val TAG = "onSignUpWithPasskeyScreen"
 @Composable
 fun SignUpWithPasskeyScreen(
     onRegisterButtonClicked: () -> Unit = {},
-    onSignUpWithPasswordClicked: () -> Unit
+    onSignUpWithOtherMethodClicked: () -> Unit
     ) {
     PageHeaderLogo()
     Column(
@@ -60,7 +60,7 @@ fun SignUpWithPasskeyScreen(
             ) {
                 OutlinedTextField(
                     value = "",
-                    label = { Text("Email") },
+                    label = { Text(stringResource(R.string.email_label)) },
                     onValueChange = { },
                     shape = RoundedCornerShape(15.dp),
                 )
@@ -76,8 +76,8 @@ fun SignUpWithPasskeyScreen(
                 Spacer(modifier = Modifier.padding(10.dp))
 
                 Text(
-                    text ="Sign Up with a Password Instead",
-                    modifier = Modifier.clickable(onClick = onSignUpWithPasswordClicked))
+                    text = stringResource(R.string.sign_up_instead),
+                    modifier = Modifier.clickable(onClick = onSignUpWithOtherMethodClicked))
             }
         }
     }
@@ -89,7 +89,7 @@ fun SignUpWithPasskeyScreenPreview() {
     PrototypeTheme {
         SignUpWithPasskeyScreen(
             onRegisterButtonClicked = {},
-            onSignUpWithPasswordClicked = {}
+            onSignUpWithOtherMethodClicked = {}
         )
     }
 }

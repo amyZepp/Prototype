@@ -24,7 +24,7 @@ val Typography = Typography(
         fontFamily = Ubuntu,
         fontWeight = FontWeight.Normal,
         fontSize = 10.sp,
-        lineHeight = 15.sp,
+        lineHeight = 12.sp,
         letterSpacing = 0.5.sp
     ),
     bodyMedium = TextStyle(
@@ -37,7 +37,7 @@ val Typography = Typography(
     bodyLarge = TextStyle(
         fontFamily = Ubuntu,
         fontWeight = FontWeight.Normal,
-        fontSize = 20.sp,
+        fontSize = 15.sp,
         lineHeight = 25.sp,
         letterSpacing = 0.5.sp
     ),

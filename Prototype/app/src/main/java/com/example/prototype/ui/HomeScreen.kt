@@ -27,7 +27,6 @@ private const val TAG = "HomeScreen"
 @Composable
 fun HomeScreen(
     PasskeySignInButtonClicked: () -> Unit,
-    PasswordSignInButtonClicked: () -> Unit,
     RegisterButtonClicked: () -> Unit,
     ProceedButtonClicked: () -> Unit,
     ) {
@@ -52,17 +51,12 @@ fun HomeScreen(
             Button(
                 onClick = PasskeySignInButtonClicked,
                 Modifier.widthIn(min = 250.dp)
-            ) { Text(text = "Sign in with a Passkey") }
-
-            Button(
-                onClick = PasswordSignInButtonClicked,
-                Modifier.widthIn(min = 250.dp)
-            ) { Text(text = "Sign in with a Password") }
+            ) { Text(text = stringResource(id = R.string.sign_in)) }
 
             Button(
                 onClick = RegisterButtonClicked,
                 Modifier.widthIn(min = 250.dp)
-            ) { Text(text = "Register a New Account") }
+            ) { Text(text = stringResource(id = R.string.sign_up)) }
 
             Button(
                 onClick = ProceedButtonClicked,
@@ -79,7 +73,6 @@ fun HomeScreenPreview(){
     PrototypeTheme {
         HomeScreen(
             PasskeySignInButtonClicked  = {},
-            PasswordSignInButtonClicked = {},
             RegisterButtonClicked = {},
             ProceedButtonClicked = {},
         )

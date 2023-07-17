@@ -24,7 +24,7 @@ import com.example.prototype.ui.theme.PrototypeTheme
 fun PasskeyInfo() {
     Row(
         Modifier.fillMaxWidth()
-            .padding(top = 20.dp, bottom = 20.dp),
+            .padding(top = 20.dp, bottom = 20.dp, start = 5.dp, end = 5.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
@@ -34,7 +34,8 @@ fun PasskeyInfo() {
                 style = MaterialTheme.typography.bodyMedium)
             Text(
                 text = stringResource(R.string.learn_more),
-                style = MaterialTheme.typography.bodyLarge)
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.padding(top = 10.dp))
         }
         Image(
             painter = painterResource(R.drawable.passkey_logo),

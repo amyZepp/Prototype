@@ -20,6 +20,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.prototype.data.DataProvider
+import com.example.prototype.ui.AccountRecoveryScreen
 import com.example.prototype.ui.HelpScreen
 import com.example.prototype.ui.HomeScreen
 import com.example.prototype.ui.MainMenuScreen
@@ -35,6 +36,7 @@ import com.example.prototype.ui.viewmodel.AuthViewModel
 private const val TAG = "ApplicationScreen"
 
 enum class ApplicationScreen(@StringRes val title: Int){
+    AccountRecovery(title = R.string.account_recovery),
     Help(title = R.string.help),
     Home(title = R.string.home),
     MainMenu(title = R.string.main_menu),
@@ -105,13 +107,17 @@ fun PrototypeApp(
             composable(route = ApplicationScreen.Help.name) {
                 HelpScreen()
             }
+            composable(route = ApplicationScreen.AccountRecovery.name) {
+                AccountRecoveryScreen(
+                    onAccountRecoveryButtonClicked = {
+                        navController.navigate(ApplicationScreen.Placeholder.name)
+                    },
+                )
+            }
             composable(route = ApplicationScreen.Home.name) {
                 HomeScreen(
                     PasskeySignInButtonClicked = {
                         navController.navigate(ApplicationScreen.SignInWithPasskey.name)
-                    },
-                    PasswordSignInButtonClicked = {
-                        navController.navigate(ApplicationScreen.SignInWithPassword.name)
                     },
                     RegisterButtonClicked = {
                         navController.navigate(ApplicationScreen.SignUpWithPasskey.name)
@@ -145,6 +151,9 @@ fun PrototypeApp(
                     onSignInButtonClicked = {
                         navController.navigate(ApplicationScreen.MainMenu.name)
                     },
+                    onTroubleClicked = {
+                        navController.navigate(ApplicationScreen.AccountRecovery.name)
+                    }
                 )
             }
             composable(route = ApplicationScreen.SignInWithPassword.name) {
@@ -165,7 +174,7 @@ fun PrototypeApp(
                     onRegisterButtonClicked = {
                         navController.navigate(ApplicationScreen.Placeholder.name)
                     },
-                    onSignUpWithPasswordClicked = {
+                    onSignUpWithOtherMethodClicked = {
                         navController.navigate(ApplicationScreen.SignUpWithPassword.name)
                     },
                 )
