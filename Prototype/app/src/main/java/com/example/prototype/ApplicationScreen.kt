@@ -90,7 +90,7 @@ fun PrototypeApp(
             PrototypeAppBar(
                 currentScreenTitle = currentScreen.title,
                 canNavigateBack = navController.previousBackStackEntry != null,
-                navigateUp = { navController.navigateUp() }
+                navigateUp = { navController.navigateUp() },
             )
         }
     ) { innerPadding ->
