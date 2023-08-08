@@ -28,7 +28,7 @@ fun SettingsScreen() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        LogoHeading(stringResource(R.string.welcome_to))
+        LogoHeading()
         Spacer(modifier = Modifier.padding(10.dp))
         Text(stringResource(R.string.settings))
         Spacer(modifier = Modifier.padding(25.dp))

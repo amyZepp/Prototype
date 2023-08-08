@@ -22,29 +22,17 @@ import com.example.prototype.ui.theme.PrototypeTheme
 
 @Composable
 fun LogoHeading(
-    text: String
 ) {
-    Column(
-        modifier = Modifier.fillMaxWidth()
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(
-            text = text,
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.headlineLarge,
-            modifier = Modifier.fillMaxWidth()
+        Image(
+            painter = painterResource(R.drawable.shrine_home_logo),
+            contentDescription = "large shrine logo",
+            modifier = Modifier.size(150.dp)
         )
-        Spacer(modifier = Modifier.padding(30.dp))
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Image(
-                painter = painterResource(R.drawable.shrine_stacked_logo),
-                contentDescription = "large shrine logo",
-                modifier = Modifier.size(200.dp)
-            )
-        }
     }
 }
 
@@ -53,6 +41,6 @@ fun LogoHeading(
 @Composable
 fun WelcomeLogoPreview(){
     PrototypeTheme {
-        LogoHeading(text = "Heading Text")
+        LogoHeading()
     }
 }

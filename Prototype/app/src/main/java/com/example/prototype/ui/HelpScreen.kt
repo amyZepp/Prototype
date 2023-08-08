@@ -27,7 +27,7 @@ fun HelpScreen() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        LogoHeading(text = stringResource(R.string.help))
+        LogoHeading()
         Text(
             text = stringResource(R.string.contact),
             textAlign = TextAlign.Center

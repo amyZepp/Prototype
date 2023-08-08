@@ -30,7 +30,8 @@ fun SignOutScreen() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        LogoHeading(stringResource(R.string.signed_out_title))
+        LogoHeading()
+        Text(text = stringResource(R.string.signed_out_title))
     }
 }
 @Preview(showBackground = true)

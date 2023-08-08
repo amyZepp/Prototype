@@ -1,68 +1,61 @@
 package com.example.prototype.ui
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.credentials.CreatePublicKeyCredentialResponse
 import com.example.prototype.R
 import com.example.prototype.ui.common.LogoHeading
+import com.example.prototype.ui.common.ShrineButton
 import com.example.prototype.ui.theme.PrototypeTheme
+import com.example.prototype.ui.theme.dark_button
+import com.example.prototype.ui.theme.light_button
+import com.example.prototype.ui.theme.md_theme_light_primary
 
 private const val TAG = "HomeScreen"
 
 @Composable
 fun HomeScreen(
-    PasskeySignInButtonClicked: () -> Unit,
-    RegisterButtonClicked: () -> Unit,
-    ProceedButtonClicked: () -> Unit,
+    onSignInRequest: () -> Unit,
+    onRegisterRequest: () -> Unit,
+    onRegisterResponse: (CreatePublicKeyCredentialResponse) -> Unit,
+    proceedButtonClicked: () -> Unit,
     ) {
     Column(modifier = Modifier
         .fillMaxSize()
-        .padding(20.dp)
-        .fillMaxHeight(),
+        .padding(20.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        LogoHeading(text = stringResource(R.string.welcome_to))
-        Column(
-            modifier = Modifier
-                .size(300.dp)
-                .background(
-                    color = Color(0xFFF0EFF0),
-                    shape = RoundedCornerShape(size = 40.dp)
-                ),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Button(
-                onClick = PasskeySignInButtonClicked,
-                Modifier.widthIn(min = 250.dp)
-            ) { Text(text = stringResource(id = R.string.sign_in)) }
-
-            Button(
-                onClick = RegisterButtonClicked,
-                Modifier.widthIn(min = 250.dp)
-            ) { Text(text = stringResource(id = R.string.sign_up)) }
-
-            Button(
-                onClick = ProceedButtonClicked,
-                Modifier.widthIn(min = 250.dp)
-            ) { Text(text = "Proceed without Signing In") }
+        LogoHeading()
+        Spacer(modifier = Modifier.padding(20.dp))
+        ShrineButton(
+            color = dark_button,
+            onClick = { onSignInRequest() }) {
+            Text(text = stringResource(id = R.string.sign_in))
         }
+
+        ShrineButton(
+            color = light_button,
+            onClick = { onRegisterRequest() }) {
+            Text(text = stringResource(id = R.string.sign_up))
+        }
+
+        ShrineButton(
+            color = md_theme_light_primary,
+            onClick = { proceedButtonClicked() }) {
+            Text(text = "Proceed without Signing In")
+        }
+
     }
 }
 
@@ -72,9 +65,10 @@ fun HomeScreen(
 fun HomeScreenPreview(){
     PrototypeTheme {
         HomeScreen(
-            PasskeySignInButtonClicked  = {},
-            RegisterButtonClicked = {},
-            ProceedButtonClicked = {},
+            onSignInRequest  = {},
+            onRegisterRequest = {},
+            onRegisterResponse = {},
+            proceedButtonClicked = {},
         )
     }
 }

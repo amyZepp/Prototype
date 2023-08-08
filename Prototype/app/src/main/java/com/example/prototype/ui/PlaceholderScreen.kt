@@ -26,7 +26,7 @@ fun PlaceholderScreen() {
     verticalArrangement = Arrangement.Center,
     horizontalAlignment = Alignment.CenterHorizontally
     ){
-        LogoHeading(stringResource(R.string.todo))
+        LogoHeading()
         Text(
             text = stringResource(R.string.todo),
             textAlign = TextAlign.Center

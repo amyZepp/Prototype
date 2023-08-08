@@ -32,7 +32,7 @@ private const val TAG = "onSignUpWithPasskeyScreen"
 @Composable
 fun SignUpWithPasskeyScreen(
     onRegisterButtonClicked: () -> Unit = {},
-    onSignUpWithOtherMethodClicked: () -> Unit
+    onSignUpWithOtherMethodClicked: () -> Unit = {}
     ) {
     PageHeaderLogo()
     Column(
@@ -68,7 +68,7 @@ fun SignUpWithPasskeyScreen(
                 Spacer(Modifier.padding(20.dp))
 
                 Button(
-                    onClick = onRegisterButtonClicked,
+                    onClick = { onRegisterButtonClicked() },
                     Modifier.widthIn(min = 280.dp)
                 ) {
                     Text(text = stringResource(R.string.sign_up)) }
@@ -77,7 +77,8 @@ fun SignUpWithPasskeyScreen(
 
                 Text(
                     text = stringResource(R.string.sign_up_instead),
-                    modifier = Modifier.clickable(onClick = onSignUpWithOtherMethodClicked))
+                    modifier = Modifier.clickable(
+                        onClick = { onSignUpWithOtherMethodClicked() }))
             }
         }
     }
@@ -88,8 +89,8 @@ fun SignUpWithPasskeyScreen(
 fun SignUpWithPasskeyScreenPreview() {
     PrototypeTheme {
         SignUpWithPasskeyScreen(
-            onRegisterButtonClicked = {},
-            onSignUpWithOtherMethodClicked = {}
+            onRegisterButtonClicked = {->},
+            onSignUpWithOtherMethodClicked = {->}
         )
     }
 }

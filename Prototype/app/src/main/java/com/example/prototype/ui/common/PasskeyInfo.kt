@@ -38,7 +38,7 @@ fun PasskeyInfo() {
                 modifier = Modifier.padding(top = 10.dp))
         }
         Image(
-            painter = painterResource(R.drawable.passkey_logo),
+            painter = painterResource(R.drawable.passkey_image),
             contentDescription = "passkey logo",
             contentScale = ContentScale.Crop,
             modifier = Modifier.width(175.dp)

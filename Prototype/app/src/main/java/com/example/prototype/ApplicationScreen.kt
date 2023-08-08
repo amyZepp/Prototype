@@ -2,7 +2,10 @@ package com.example.prototype
 
 import android.app.Activity
 import androidx.annotation.StringRes
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Icon
@@ -13,13 +16,15 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.prototype.data.DataProvider
 import com.example.prototype.ui.AccountRecoveryScreen
 import com.example.prototype.ui.HelpScreen
 import com.example.prototype.ui.HomeScreen
@@ -57,8 +62,11 @@ fun PrototypeAppBar(
     modifier: Modifier = Modifier
 ) {
     TopAppBar(
-        title = { Text(stringResource(currentScreenTitle)) },
-        modifier = modifier,
+        title = { Text(
+            stringResource(currentScreenTitle),
+            style = TextStyle()
+        ) },
+        modifier = modifier.height(25.dp),
         navigationIcon = {
             if (canNavigateBack) {
                 IconButton(onClick = navigateUp) {
@@ -77,6 +85,7 @@ fun PrototypeApp(
     authViewModel: AuthViewModel,
 ) {
     val activity = LocalContext.current as Activity
+    val uiState = authViewModel.appState
     // Create NavController
     val navController = rememberNavController()
     // Get current back stack entry
@@ -94,7 +103,7 @@ fun PrototypeApp(
             )
         }
     ) { innerPadding ->
-        val showScreen: String = if (DataProvider.isSignedIn()) {
+        val showScreen: String = if (uiState.isSignedIn) {
             ApplicationScreen.MainMenu.name
         } else {
             ApplicationScreen.Home.name
@@ -116,13 +125,14 @@ fun PrototypeApp(
             }
             composable(route = ApplicationScreen.Home.name) {
                 HomeScreen(
-                    PasskeySignInButtonClicked = {
+                    onSignInRequest = {
                         navController.navigate(ApplicationScreen.SignInWithPasskey.name)
                     },
-                    RegisterButtonClicked = {
+                    onRegisterRequest = {
                         navController.navigate(ApplicationScreen.SignUpWithPasskey.name)
                     },
-                    ProceedButtonClicked = {
+                    onRegisterResponse = {},
+                    proceedButtonClicked = {
                         navController.navigate(ApplicationScreen.MainMenu.name)
                     },
                 )
