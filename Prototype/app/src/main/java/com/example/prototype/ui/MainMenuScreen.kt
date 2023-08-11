@@ -6,8 +6,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.widthIn
-import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,8 +18,6 @@ import com.example.prototype.ui.common.PageHeaderLogo
 import com.example.prototype.ui.common.ShrineButton
 import com.example.prototype.ui.common.TextHeader
 import com.example.prototype.ui.theme.PrototypeTheme
-import com.example.prototype.ui.theme.dark_button
-import com.example.prototype.ui.theme.light_button
 
 private const val TAG = "MainMenu"
 
@@ -48,8 +44,7 @@ fun MainMenuScreen(
 
         ShrineButton(
             onClick = onDoSomethingButtonClicked) {
-            Text(text = ("Go to the App"))
-        }
+            Text(text = ("Go to the App")) }
 
         ShrineButton(
             onClick = onHelpButtonClicked,
