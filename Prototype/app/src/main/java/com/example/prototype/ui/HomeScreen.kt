@@ -39,7 +39,7 @@ fun HomeScreen(
         LogoHeading()
         Spacer(modifier = Modifier.padding(20.dp))
         ShrineButton(
-            color = dark_button,
+            //color = dark_button,
             onClick = { onSignInRequest() }) {
             Text(text = stringResource(id = R.string.sign_in))
         }
@@ -51,7 +51,7 @@ fun HomeScreen(
         }
 
         ShrineButton(
-            color = md_theme_light_primary,
+            //color = md_theme_light_primary,
             onClick = { proceedButtonClicked() }) {
             Text(text = "Proceed without Signing In")
         }

@@ -17,8 +17,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.prototype.R
 import com.example.prototype.ui.common.PageHeaderLogo
+import com.example.prototype.ui.common.ShrineButton
 import com.example.prototype.ui.common.TextHeader
 import com.example.prototype.ui.theme.PrototypeTheme
+import com.example.prototype.ui.theme.dark_button
+import com.example.prototype.ui.theme.light_button
 
 private const val TAG = "MainMenu"
 
@@ -43,19 +46,17 @@ fun MainMenuScreen(
         }
         Spacer(modifier = Modifier.padding(30.dp))
 
-        Button(
-            onClick = onDoSomethingButtonClicked,
-            Modifier.widthIn(min = 250.dp)
-        ) { Text(text = "Do Something") }
+        ShrineButton(
+            onClick = onDoSomethingButtonClicked) {
+            Text(text = ("Go to the App"))
+        }
 
-        Button(
+        ShrineButton(
             onClick = onHelpButtonClicked,
-            Modifier.widthIn(min = 250.dp)
         ) { Text(stringResource(R.string.help)) }
 
-        Button(
+        ShrineButton(
             onClick = onSignOutButtonClicked,
-            Modifier.widthIn(min = 250.dp)
         ) { Text(stringResource(R.string.sign_out)) }
     }
 }

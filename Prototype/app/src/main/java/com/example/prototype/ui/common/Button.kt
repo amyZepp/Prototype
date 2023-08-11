@@ -30,6 +30,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.prototype.ui.theme.PrototypeTheme
 import com.example.prototype.ui.theme.dark_button
+import com.example.prototype.ui.theme.light_button
 import com.example.prototype.ui.theme.md_theme_light_primary
 import org.w3c.dom.Text
 
@@ -37,7 +38,7 @@ import org.w3c.dom.Text
 fun ShrineButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    color: Color,
+    color: Color = dark_button,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     shape: Shape = ButtonShape,
@@ -82,7 +83,7 @@ private val ButtonShape = CutCornerShape(10)
 private fun ButtonPreview() {
     PrototypeTheme {
         ShrineButton(
-            color = dark_button,
+            color = light_button,
             onClick = {}) {
             Text(text = "Demo")
         }
