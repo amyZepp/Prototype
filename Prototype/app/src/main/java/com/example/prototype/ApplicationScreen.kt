@@ -37,6 +37,7 @@ import com.example.prototype.ui.SignOutScreen
 import com.example.prototype.ui.SignUpWithPasskeyScreen
 import com.example.prototype.ui.SignUpWithPasswordScreen
 import com.example.prototype.ui.viewmodel.AuthViewModel
+import kotlinx.coroutines.CoroutineScope
 
 private const val TAG = "ApplicationScreen"
 
@@ -82,7 +83,8 @@ fun PrototypeAppBar(
 
 @Composable
 fun PrototypeApp(
-    authViewModel: AuthViewModel,
+    scope: CoroutineScope,
+    authViewModel: AuthViewModel
 ) {
     val activity = LocalContext.current as Activity
     val uiState = authViewModel.appState
@@ -185,8 +187,10 @@ fun PrototypeApp(
                         navController.navigate(ApplicationScreen.Placeholder.name)
                     },
                     onSignUpWithOtherMethodClicked = {
-                        navController.navigate(ApplicationScreen.SignUpWithPassword.name)
-                    },
+
+                        authViewModel.signUpWithPasskey(activity, scope)
+                       //navController.navigate(ApplicationScreen.SignUpWithPassword.name)
+                    }
                 )
             }
             composable(route = ApplicationScreen.SignUpWithPassword.name) {

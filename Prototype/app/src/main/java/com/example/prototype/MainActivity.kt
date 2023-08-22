@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelProvider
 import com.example.prototype.data.DataProvider
@@ -21,13 +22,14 @@ class MainActivity : ComponentActivity() {
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
         DataProvider.initSharedPref(applicationContext)
         setContent {
+            val scope = rememberCoroutineScope()
             PrototypeTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    PrototypeApp(authViewModel = AuthViewModel(application))
+                    PrototypeApp(scope, authViewModel = AuthViewModel(application))
                 }
             }
         }
