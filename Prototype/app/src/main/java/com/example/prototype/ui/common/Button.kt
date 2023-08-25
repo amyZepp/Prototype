@@ -11,11 +11,8 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CutCornerShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -31,8 +28,6 @@ import androidx.compose.ui.unit.dp
 import com.example.prototype.ui.theme.PrototypeTheme
 import com.example.prototype.ui.theme.dark_button
 import com.example.prototype.ui.theme.light_button
-import com.example.prototype.ui.theme.md_theme_light_primary
-import org.w3c.dom.Text
 
 @Composable
 fun ShrineButton(
