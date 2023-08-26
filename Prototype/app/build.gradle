@@ -1,7 +1,20 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
 }
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+// Load keystore properties for our signing key
+// (see developer.android.com/studio/publish/app-signing)
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     namespace 'com.example.prototype'
@@ -18,12 +31,28 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+        buildConfigField 'String', 'API_BASE_URL', "\"https://credman-glitch-sample.glitch.me/auth\""
+        resValue 'string', 'host', 'https://credman-glitch-sample.glitch.me'
+    }
+
+    signingConfigs {
+        config {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+
+        debug {
+            signingConfig signingConfigs.config
         }
     }
 
@@ -54,14 +83,14 @@ android {
 
 dependencies {
     // Credential Manager
-    implementation("androidx.credentials:credentials:1.2.0-beta02")
+    implementation("androidx.credentials:credentials:1.2.0-beta03")
 
     // optional - needed for credentials support from play services, for devices running
     // Android 13 and below.
-    implementation("androidx.credentials:credentials-play-services-auth:1.2.0-beta02")
-    // preferences
-    implementation("androidx.preference:preference:1.2.1")
-    implementation("androidx.preference:preference-ktx:$preference_version")
+    implementation("androidx.credentials:credentials-play-services-auth:1.2.0-beta03")
+
+    // FIDO
+    implementation 'com.google.android.gms:play-services-fido:20.0.1'
 
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
@@ -79,17 +108,17 @@ dependencies {
     implementation 'androidx.compose.ui:ui-tooling-preview'
     implementation 'androidx.compose.material3:material3'
     implementation 'androidx.activity:activity-compose:1.7.2'
-    implementation 'androidx.compose.foundation:foundation-layout-android:1.6.0-alpha02'
+    implementation 'androidx.compose.foundation:foundation-layout-android:1.6.0-alpha04'
 
     //navigation
-    implementation 'androidx.navigation:navigation-compose:2.6.0'
+    implementation 'androidx.navigation:navigation-compose:2.7.1'
 
     // runtime
     implementation 'androidx.compose.runtime:runtime'
     implementation 'androidx.compose.runtime:runtime-livedata'
 
     //font
-    implementation("androidx.compose.ui:ui-text-google-fonts:1.4.3")
+    implementation("androidx.compose.ui:ui-text-google-fonts:1.5.0")
 
     // defaults
     implementation 'androidx.core:core-ktx:1.10.1'
@@ -106,4 +135,22 @@ dependencies {
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
+    def hilt_version = '2.47'
+
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    kapt "androidx.hilt:hilt-compiler:1.0.0"
+
+    def okhttp_version = '4.11.0'
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+    implementation "ru.gildor.coroutines:kotlin-coroutines-okhttp:1.0"
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+    implementation 'androidx.compose.material3:material3:1.1.1'
+
+
+    implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-compose:2.6.1"
+
 }

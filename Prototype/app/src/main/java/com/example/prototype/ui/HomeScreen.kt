@@ -17,9 +17,7 @@ import com.example.prototype.R
 import com.example.prototype.ui.common.LogoHeading
 import com.example.prototype.ui.common.ShrineButton
 import com.example.prototype.ui.theme.PrototypeTheme
-import com.example.prototype.ui.theme.dark_button
 import com.example.prototype.ui.theme.light_button
-import com.example.prototype.ui.theme.md_theme_light_primary
 
 private const val TAG = "HomeScreen"
 

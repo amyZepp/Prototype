@@ -29,6 +29,7 @@ import com.example.prototype.ui.AccountRecoveryScreen
 import com.example.prototype.ui.HelpScreen
 import com.example.prototype.ui.HomeScreen
 import com.example.prototype.ui.MainMenuScreen
+import com.example.prototype.ui.OtherOptionsScreen
 import com.example.prototype.ui.PlaceholderScreen
 import com.example.prototype.ui.SettingsScreen
 import com.example.prototype.ui.SignInWithPasskeyScreen
@@ -46,6 +47,7 @@ enum class ApplicationScreen(@StringRes val title: Int){
     Help(title = R.string.help),
     Home(title = R.string.home),
     MainMenu(title = R.string.main_menu),
+    OtherOptions(title = R.string.other_options),
     Placeholder(title = R.string.todo),
     Settings(title = R.string.settings),
     SignInWithPasskey(title = R.string.sign_in),
@@ -152,6 +154,20 @@ fun PrototypeApp(
                     },
                 )
             }
+            composable(route = ApplicationScreen.OtherOptions.name) {
+                OtherOptionsScreen(
+                    onSignUpWithPasskeyButtonClicked = {
+                        authViewModel.signUpWithPasskey(activity,scope)
+                    },
+                    onSignUpWithPasswordButtonClicked = {
+                        navController.navigate(ApplicationScreen.Placeholder.name)
+                                                        },
+                    onSignUpWithPhoneButtonClicked = {
+                        navController.navigate(ApplicationScreen.Placeholder.name)
+                    }
+                )
+            }
+
             composable(route = ApplicationScreen.Placeholder.name) {
                 PlaceholderScreen()
             }
@@ -160,7 +176,8 @@ fun PrototypeApp(
             }
             composable(route = ApplicationScreen.SignInWithPasskey.name) {
                 SignInWithPasskeyScreen(
-                    onSignInButtonClicked = {
+                    onSignInWithPasskeyClicked = {
+                        //authViewModel.signInWithPasskey(activity,scope)
                         navController.navigate(ApplicationScreen.MainMenu.name)
                     },
                     onTroubleClicked = {
@@ -187,9 +204,9 @@ fun PrototypeApp(
                         navController.navigate(ApplicationScreen.Placeholder.name)
                     },
                     onSignUpWithOtherMethodClicked = {
-
-                        authViewModel.signUpWithPasskey(activity, scope)
+                        //authViewModel.signUpWithPasskey(activity, scope)
                        //navController.navigate(ApplicationScreen.SignUpWithPassword.name)
+                        navController.navigate(ApplicationScreen.OtherOptions.name)
                     }
                 )
             }
