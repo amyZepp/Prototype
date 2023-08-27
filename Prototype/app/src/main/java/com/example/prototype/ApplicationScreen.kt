@@ -201,7 +201,8 @@ fun PrototypeApp(
             composable(route = ApplicationScreen.SignUpWithPasskey.name) {
                 SignUpWithPasskeyScreen(
                     onRegisterButtonClicked = {
-                        navController.navigate(ApplicationScreen.Placeholder.name)
+                        authViewModel.signUpWithPasskey(activity,scope)
+                        //navController.navigate(ApplicationScreen.Placeholder.name)
                     },
                     onSignUpWithOtherMethodClicked = {
                         //authViewModel.signUpWithPasskey(activity, scope)
