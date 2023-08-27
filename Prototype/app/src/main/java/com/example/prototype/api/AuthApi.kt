@@ -20,6 +20,7 @@ import android.util.JsonReader
 import android.util.JsonToken.STRING
 import android.util.JsonWriter
 import android.util.Log
+import com.example.prototype.BuildConfig
 import com.example.prototype.decodeBase64
 import com.google.android.gms.fido.fido2.api.common.Attachment
 import com.google.android.gms.fido.fido2.api.common.PublicKeyCredentialType.PUBLIC_KEY
