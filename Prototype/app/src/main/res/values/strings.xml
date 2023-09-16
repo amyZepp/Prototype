@@ -16,6 +16,7 @@
     <string name="other_options">Other Options</string>
     <string name="password">Password</string>
     <string name="passkey_info">With passkeys, you don’t need to remember complex passwords. Instead, you can use your fingerprint, face, or screen lock to sign in.</string>
+    <string name="passkey_info_heading">Create a passkey for faster, easier sign-in</string>
     <string name="proceed">Proceed without Signing In</string>
     <string name="prototype">Prototype</string>
     <string name="send_reset">Send reset link via email</string>

@@ -25,7 +25,7 @@ fun TextHeader(
 ) {
     Column(
         modifier = Modifier.fillMaxWidth()
-            .padding(bottom = 15.dp)
+            .padding(start = 5.dp, bottom = 15.dp)
     ) {
         Text(
             text = text,
