@@ -10,6 +10,13 @@
     <string name="help">Get Help</string>
     <string name="home">Home</string>
     <string name="learn_more">Learn More</string>
+    <string name="learn_more_heading">Passwordless login with passkeys</string>
+    <string name="learn_more_line1">What are passkeys?</string>
+    <string name="learn_more_line2">Passkeys are encrypted digital keys you create using your fingerprint, face, or screen lock</string>
+    <string name="learn_more_line3">Where are passkeys saved?</string>
+    <string name="learn_more_line4">They are saved to a password manager so you can login on other devices</string>
+    <string name="learn_more_line5">Are they better than passwords?</string>
+    <string name="learn_more_line6">Yes, passkeys are more secure than passwords and provide a simpler login where you do not have to remember complex passwords</string>
     <string name="main_menu">Main Menu</string>
     <string name="name_label">Name</string>
     <string name="or">Or</string>
