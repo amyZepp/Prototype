@@ -12,10 +12,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.example.prototype.R
 import com.example.prototype.ui.common.LogoHeading
 import com.example.prototype.ui.theme.PrototypeTheme
+
+private const val TAG = "PlaceholderScreen"
 
 @Composable
 fun PlaceholderScreen() {

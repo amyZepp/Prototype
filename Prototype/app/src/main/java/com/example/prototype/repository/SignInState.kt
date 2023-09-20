@@ -16,6 +16,8 @@
 
 package com.example.prototype.repository
 
+private const val TAG = "SignInState"
+
 /**
  * Represents the sign in/out state of the user. Used to navigate between screens in the app.
  */

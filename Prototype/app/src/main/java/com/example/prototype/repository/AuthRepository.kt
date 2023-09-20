@@ -35,9 +35,12 @@ import org.json.JSONObject
 import javax.inject.Inject
 import javax.inject.Singleton
 
+private const val TAG = "AuthRepository"
+
 /**
  * Works with the API, the local data store
  */
+
 @Singleton
 class AuthRepository @Inject constructor(
     private val api: AuthApi,

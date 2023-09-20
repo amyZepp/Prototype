@@ -26,7 +26,7 @@ import com.example.prototype.ui.common.ShrineButton
 import com.example.prototype.ui.common.TextHeader
 import com.example.prototype.ui.theme.PrototypeTheme
 
-private const val TAG = "SignInScreen"
+private const val TAG = "SignInWithPasswordScreen"
 
 @Composable
 fun SignInWithPasswordScreen(

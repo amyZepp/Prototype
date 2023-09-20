@@ -42,6 +42,8 @@ import androidx.credentials.exceptions.CreateCredentialUnknownException
 import androidx.credentials.exceptions.publickeycredential.CreatePublicKeyCredentialDomException
 import org.json.JSONObject
 
+private const val TAG = "Auth"
+
 class Auth(context: Context) {
     private val credMan: CredentialManager
 

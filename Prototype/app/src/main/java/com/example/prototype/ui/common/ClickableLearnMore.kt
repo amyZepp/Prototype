@@ -12,9 +12,9 @@ import androidx.compose.ui.res.stringResource
 import com.example.prototype.R
 
 @Composable
-fun ClickableLinkText() {
+fun ClickableLearnMore() {
     val context = LocalContext.current
-    val intent = remember { Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/")) }
+    val intent = remember { Intent(Intent.ACTION_VIEW, Uri.parse("https://developers.google.com/identity/passkeys/")) }
         Text(
             text = stringResource(R.string.learn_more),
                     modifier = Modifier.clickable(

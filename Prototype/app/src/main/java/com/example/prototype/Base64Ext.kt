@@ -18,6 +18,8 @@ package com.example.prototype
 
 import android.util.Base64
 
+private const val TAG = "Base64Ext"
+
 private const val BASE64_FLAG = Base64.NO_PADDING or Base64.NO_WRAP or Base64.URL_SAFE
 
 fun String.decodeBase64(): ByteArray {

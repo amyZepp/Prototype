@@ -22,11 +22,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.prototype.R
-import com.example.prototype.ui.common.ClickableLinkText
+import com.example.prototype.ui.common.ClickableLearnMore
 import com.example.prototype.ui.common.ShrineButton
 import com.example.prototype.ui.theme.PrototypeTheme
 
-private const val TAG = "HomeScreen"
+private const val TAG = "LearnMoreScreen"
 
 @Composable
 fun LearnMoreScreen(){
@@ -82,7 +82,7 @@ fun LearnMoreScreen(){
                 style = TextStyle(fontSize = 18.sp, textAlign = TextAlign.Start),
                 modifier = Modifier.padding(top = 12.dp, bottom = 12.dp)
             )
-            ClickableLinkText()
+            ClickableLearnMore()
         }
         ShrineButton(onClick = { /*TODO*/ }) {
             Text(stringResource(R.string.back_button))

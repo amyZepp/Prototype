@@ -19,7 +19,7 @@ import com.example.prototype.ui.common.ShrineButton
 import com.example.prototype.ui.common.TextHeader
 import com.example.prototype.ui.theme.PrototypeTheme
 
-private const val TAG = "MainMenu"
+private const val TAG = "MainMenuScreen"
 
 @Composable
 fun MainMenuScreen(

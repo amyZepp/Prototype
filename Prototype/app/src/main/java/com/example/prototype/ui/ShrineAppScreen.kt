@@ -16,6 +16,8 @@ import com.example.prototype.R
 import com.example.prototype.ui.common.LogoHeading
 import com.example.prototype.ui.theme.PrototypeTheme
 
+private const val TAG = "ShrineAppScreen"
+
 @Composable
 fun ShrineAppScreen() {
     Column(

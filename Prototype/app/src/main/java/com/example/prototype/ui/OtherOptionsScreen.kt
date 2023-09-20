@@ -21,12 +21,14 @@ import com.example.prototype.ui.common.TextHeader
 import com.example.prototype.ui.theme.PrototypeTheme
 import com.example.prototype.ui.theme.light_button
 
+private const val TAG = "OtherOptionsScreen"
 
 @Composable
 fun OtherOptionsScreen(
     onSignUpWithPasskeyButtonClicked: () -> Unit = {},
     onSignUpWithPasswordButtonClicked: () -> Unit = {},
     onSignUpWithPhoneButtonClicked: () -> Unit = {},
+    onLearnMoreClicked: () -> Unit = {},
     ) {
     Column(
         modifier = Modifier
@@ -37,7 +39,7 @@ fun OtherOptionsScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         TextHeader(text = stringResource(R.string.other_options))
-        PasskeyInfo()
+        PasskeyInfo(onLearnMoreClicked)
         Column(
             modifier = Modifier
                 .fillMaxWidth()
