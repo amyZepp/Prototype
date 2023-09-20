@@ -28,6 +28,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.prototype.ui.AccountRecoveryScreen
 import com.example.prototype.ui.HelpScreen
 import com.example.prototype.ui.HomeScreen
+import com.example.prototype.ui.LearnMoreScreen
 import com.example.prototype.ui.MainMenuScreen
 import com.example.prototype.ui.OtherOptionsScreen
 import com.example.prototype.ui.PlaceholderScreen
@@ -46,6 +47,7 @@ enum class ApplicationScreen(@StringRes val title: Int){
     AccountRecovery(title = R.string.account_recovery),
     Help(title = R.string.help),
     Home(title = R.string.home),
+    LearnMore(title = R.string.learn_more),
     MainMenu(title = R.string.main_menu),
     OtherOptions(title = R.string.other_options),
     Placeholder(title = R.string.todo),
@@ -127,6 +129,11 @@ fun PrototypeApp(
                     },
                 )
             }
+
+            composable(route = ApplicationScreen.LearnMore.name) {
+                LearnMoreScreen()
+            }
+
             composable(route = ApplicationScreen.Home.name) {
                 HomeScreen(
                     onSignInRequest = {

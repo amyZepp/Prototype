@@ -3,6 +3,7 @@ package com.example.prototype.ui.common
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,7 +29,9 @@ import com.example.prototype.R
 import com.example.prototype.ui.theme.PrototypeTheme
 
 @Composable
-fun PasskeyInfo() {
+fun PasskeyInfo(
+    onLearnMoreClicked: () -> Unit,
+    ) {
     Column(
         Modifier
             .width(340.dp)
@@ -60,6 +63,7 @@ fun PasskeyInfo() {
                     text = stringResource(R.string.learn_more),
                     style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold),
                     modifier = Modifier.padding(top = 10.dp)
+                        .clickable { onLearnMoreClicked() }
                 )
             }
             Image(
@@ -77,6 +81,8 @@ fun PasskeyInfo() {
 @Composable
 fun PasskeyInfoPreview(){
     PrototypeTheme {
-        PasskeyInfo()
+        PasskeyInfo(
+            onLearnMoreClicked = {->}
+        )
     }
 }
