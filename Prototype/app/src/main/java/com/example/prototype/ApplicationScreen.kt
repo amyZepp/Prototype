@@ -127,10 +127,6 @@ fun PrototypeApp(
                 )
             }
 
-            composable(route = ApplicationScreen.LearnMore.name) {
-                LearnMoreScreen()
-            }
-
             composable(route = ApplicationScreen.Home.name) {
                 HomeScreen(
                     onSignInRequest = {
@@ -145,10 +141,17 @@ fun PrototypeApp(
                     },
                 )
             }
+            composable(route = ApplicationScreen.LearnMore.name) {
+                LearnMoreScreen()
+            }
+
             composable(route = ApplicationScreen.MainMenu.name) {
                 MainMenuScreen(
                     onDoSomethingButtonClicked = {
                         navController.navigate(ApplicationScreen.Placeholder.name)
+                    },
+                    onSettingsButtonClicked = {
+                        navController.navigate(ApplicationScreen.Settings.name)
                     },
                     onHelpButtonClicked = {
                         navController.navigate(ApplicationScreen.Help.name)
@@ -178,9 +181,11 @@ fun PrototypeApp(
             composable(route = ApplicationScreen.Placeholder.name) {
                 PlaceholderScreen()
             }
+
             composable(route = ApplicationScreen.Settings.name) {
                 SettingsScreen()
             }
+
             composable(route = ApplicationScreen.SignInWithPasskey.name) {
                 SignInWithPasskeyScreen(
                     onSignInWithPasskeyClicked = {
@@ -192,6 +197,7 @@ fun PrototypeApp(
                     }
                 )
             }
+
             composable(route = ApplicationScreen.SignInWithPassword.name) {
                 SignInWithPasswordScreen(
                     onSignInButtonClicked = {
@@ -202,9 +208,11 @@ fun PrototypeApp(
                     },
                 )
             }
+
             composable(route = ApplicationScreen.SignOut.name) {
                 SignOutScreen()
             }
+
             composable(route = ApplicationScreen.SignUpWithPasskey.name) {
                 SignUpWithPasskeyScreen(
                     onRegisterButtonClicked = {
@@ -218,6 +226,7 @@ fun PrototypeApp(
                     }
                 )
             }
+
             composable(route = ApplicationScreen.SignUpWithPassword.name) {
                 SignUpWithPasswordScreen(
                     onSignUpWithPasswordButtonClicked = {
