@@ -20,7 +20,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.prototype.R
-import com.example.prototype.ui.common.PageHeaderLogo
 import com.example.prototype.ui.common.ShrineButton
 import com.example.prototype.ui.common.TextHeader
 import com.example.prototype.ui.theme.PrototypeTheme
@@ -32,7 +31,6 @@ fun SignInWithPasskeyScreen(
     onSignInWithPasskeyClicked: () -> Unit,
     onTroubleClicked: () -> Unit
 ) {
-    PageHeaderLogo()
     Column(
         modifier = Modifier
             .fillMaxSize()
