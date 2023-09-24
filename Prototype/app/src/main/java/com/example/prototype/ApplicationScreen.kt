@@ -30,6 +30,7 @@ import com.example.prototype.ui.MainMenuScreen
 import com.example.prototype.ui.OtherOptionsScreen
 import com.example.prototype.ui.PlaceholderScreen
 import com.example.prototype.ui.SettingsScreen
+import com.example.prototype.ui.ShrineAppScreen
 import com.example.prototype.ui.SignInWithPasskeyScreen
 import com.example.prototype.ui.SignInWithPasswordScreen
 import com.example.prototype.ui.SignOutScreen
@@ -49,6 +50,7 @@ enum class ApplicationScreen(@StringRes val title: Int){
     OtherOptions(title = R.string.other_options),
     Placeholder(title = R.string.todo),
     Settings(title = R.string.settings),
+    ShrineApp(title = R.string.app_name),
     SignInWithPasskey(title = R.string.sign_in),
     SignInWithPassword(title = R.string.sign_in),
     SignOut(title = R.string.sign_out),
@@ -147,8 +149,8 @@ fun PrototypeApp(
 
             composable(route = ApplicationScreen.MainMenu.name) {
                 MainMenuScreen(
-                    onDoSomethingButtonClicked = {
-                        navController.navigate(ApplicationScreen.Placeholder.name)
+                    onGoToTheAppClicked = {
+                        navController.navigate(ApplicationScreen.ShrineApp.name)
                     },
                     onSettingsButtonClicked = {
                         navController.navigate(ApplicationScreen.Settings.name)
@@ -184,6 +186,10 @@ fun PrototypeApp(
 
             composable(route = ApplicationScreen.Settings.name) {
                 SettingsScreen()
+            }
+
+            composable(route = ApplicationScreen.ShrineApp.name) {
+                ShrineAppScreen()
             }
 
             composable(route = ApplicationScreen.SignInWithPasskey.name) {

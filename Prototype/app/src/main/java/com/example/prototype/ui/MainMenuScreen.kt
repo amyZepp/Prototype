@@ -22,7 +22,7 @@ private const val TAG = "MainMenuScreen"
 
 @Composable
 fun MainMenuScreen(
-    onDoSomethingButtonClicked: () -> Unit,
+    onGoToTheAppClicked: () -> Unit,
     onSettingsButtonClicked: () -> Unit,
     onHelpButtonClicked: () -> Unit,
     onSignOutButtonClicked: () -> Unit,
@@ -42,7 +42,7 @@ fun MainMenuScreen(
         Spacer(modifier = Modifier.padding(30.dp))
 
         ShrineButton(
-            onClick = onDoSomethingButtonClicked) {
+            onClick = onGoToTheAppClicked) {
             Text(text = ("Go to the App")) }
 
         ShrineButton(
@@ -64,7 +64,7 @@ fun MainMenuScreen(
 fun MainMenuScreenPreview() {
     PrototypeTheme {
         MainMenuScreen(
-            onDoSomethingButtonClicked = {},
+            onGoToTheAppClicked = {},
             onSettingsButtonClicked = {},
             onHelpButtonClicked = {},
             onSignOutButtonClicked = {},
