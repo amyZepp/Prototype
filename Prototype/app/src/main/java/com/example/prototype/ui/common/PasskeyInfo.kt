@@ -32,7 +32,7 @@ fun PasskeyInfo(
     ) {
     Column(
         Modifier
-            .width(340.dp)
+            .fillMaxWidth()
             .background(
                 color = Color(0xFFF9F2F1),
                 shape = RectangleShape

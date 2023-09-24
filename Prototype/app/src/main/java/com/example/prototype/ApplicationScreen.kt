@@ -170,7 +170,7 @@ fun PrototypeApp(
                     },
                     onSignUpWithPasswordButtonClicked = {
                         navController.navigate(ApplicationScreen.Placeholder.name)
-                                                        },
+                    },
                     onSignUpWithPhoneButtonClicked = {
                         navController.navigate(ApplicationScreen.Placeholder.name)
                     },
@@ -185,7 +185,17 @@ fun PrototypeApp(
             }
 
             composable(route = ApplicationScreen.Settings.name) {
-                SettingsScreen()
+                SettingsScreen(
+                    onCreatePasskeyClicked = {
+                        navController.navigate(ApplicationScreen.Placeholder.name)
+                    },
+                    onChangePasswordClicked = {
+                        navController.navigate(ApplicationScreen.Placeholder.name)
+                    },
+                    onHelpClicked = {
+                        navController.navigate(ApplicationScreen.Help.name)
+                    }
+                )
             }
 
             composable(route = ApplicationScreen.ShrineApp.name) {

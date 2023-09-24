@@ -10,7 +10,8 @@ class Datasource() {
             return listOf<Product>(
                 Product(R.string.lamp, R.drawable.lamp),
                 Product(R.string.dishes, R.drawable.dishes),
-                Product(R.string.bag, R.drawable.bag)
+                Product(R.string.bag, R.drawable.bag),
+                Product(R.string.jacket, R.drawable.jacket)
             )
         }
     }
