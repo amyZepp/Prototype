@@ -24,9 +24,9 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.prototype.ui.AccountRecoveryScreen
 import com.example.prototype.ui.HelpScreen
-import com.example.prototype.ui.HomeScreen
 import com.example.prototype.ui.LearnMoreScreen
 import com.example.prototype.ui.MainMenuScreen
+import com.example.prototype.ui.NewHomeScreen
 import com.example.prototype.ui.OtherOptionsScreen
 import com.example.prototype.ui.PlaceholderScreen
 import com.example.prototype.ui.SettingsScreen
@@ -118,9 +118,7 @@ fun PrototypeApp(
             startDestination = showScreen,
             modifier = Modifier.padding(innerPadding)
         ) {
-            composable(route = ApplicationScreen.Help.name) {
-                HelpScreen()
-            }
+
             composable(route = ApplicationScreen.AccountRecovery.name) {
                 AccountRecoveryScreen(
                     onAccountRecoveryButtonClicked = {
@@ -128,9 +126,12 @@ fun PrototypeApp(
                     },
                 )
             }
+            composable(route = ApplicationScreen.Help.name) {
+                HelpScreen()
+            }
 
             composable(route = ApplicationScreen.Home.name) {
-                HomeScreen(
+                NewHomeScreen(
                     onSignInRequest = {
                         navController.navigate(ApplicationScreen.SignInWithPasskey.name)
                     },

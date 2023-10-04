@@ -22,7 +22,7 @@ import com.example.prototype.ui.theme.light_button
 private const val TAG = "HomeScreen"
 
 @Composable
-fun HomeScreen(
+fun NewHomeScreen(
     onSignInRequest: () -> Unit,
     onRegisterRequest: () -> Unit,
     onRegisterResponse: (CreatePublicKeyCredentialResponse) -> Unit,
@@ -62,7 +62,7 @@ fun HomeScreen(
 @Composable
 fun HomeScreenPreview(){
     PrototypeTheme {
-        HomeScreen(
+        NewHomeScreen(
             onSignInRequest  = {},
             onRegisterRequest = {},
             onRegisterResponse = {},
